@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyschemaorg"
+version = "0.1.0"
+authors = [
+    {name = "Philippe Guglielmetti", email = "github@goulu.net"},
+]
+description = "schema.org TypedDicts for Python with ORM support"
+readme = "README.rst"
+requires-python = ">=3.9"
+keywords = []
+license = {file = "LICENSE"}
+classifiers = [
+        "License :: MIT License (MIT)",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3.9",
+]
+
+dynamic = ["dependencies", "optional-dependencies"]
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+optional-dependencies = {dev = { file = ["requirements-dev.txt"] }}
