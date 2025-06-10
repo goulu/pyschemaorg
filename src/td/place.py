@@ -1,41 +1,34 @@
+from __future__ import annotations
 from datetime import date, datetime
 from typing import Optional, Union, List
-
-from .creative_work import Review
-from .media_object import ImageObject
-from .rating import AggregateRating
-
-from .date_time import OpeningHoursSpecification
-from .business import Product
 from .thing import Intangible, Text
-from .values import PropertyValue, StructuredValue
-from .event import Event
+from .values import StructuredValue, PropertyValue
 
 
 class VirtualLocation(Intangible, total=False):
     """
-    A class representing .org's Intangible.
-    See: https://.org/VirtualLocation
+    A class representing schema.org's Intangible.
+    See: https://schema.org/VirtualLocation
     """
     pass
 
 
 class Language(Intangible, total=False):
     """
-    A class representing .org's Intangible.
-    See: https://.org/Language
+    A class representing schema.org's Intangible.
+    See: https://schema.org/Language
     """
     pass
 
 
 class ContactPoint(StructuredValue, total=False):
     """
-    A class representing .org's ContactPoint.
-    See: https://.org/ContactPoint
+    A class representing schema.org's ContactPoint.
+    See: https://schema.org/ContactPoint
     """
     # The geographic area where a service or offered item is provided.
-    areaServed: Optional[Union['Place',
-                               'GeoShape', 'AdministrativeArea', Text]]
+    areaServed: Optional[Union[Place,
+                               GeoShape, AdministrativeArea, Text]]
 
     # A language someone may use with or at the item.
     availableLanguage: Optional[Union[Text, Language,]]
@@ -48,17 +41,17 @@ class ContactPoint(StructuredValue, total=False):
     # The hours during which this contact point is available.
     hoursAvailable: Optional[OpeningHoursSpecification]
     # The product or service supported by this contact point.
-    productSupported: Optional[Union[str, 'Product']]
+    productSupported: Optional[Union[str, Product]]
     telephone: Optional[str]  # The telephone number.
 
 
 # PostalAddress: https://.org/PostalAddress
 class PostalAddress(ContactPoint, total=False):
     """
-    A class representing .org's PostalAddress.
-    See: https://.org/PostalAddress
+    A class representing schema.org's PostalAddress.
+    See: https://schema.org/PostalAddress
     """
-    addressCountry: Optional[Union[str, 'Country']
+    addressCountry: Optional[Union[str, Country]
                              # The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
                              ]
     addressLocality: Optional[str]  # The locality. For example, Mountain View.
@@ -74,14 +67,14 @@ class PostalAddress(ContactPoint, total=False):
 
 class GeoCoordinates(StructuredValue, total=False):
     """
-    A class representing .org's GeoCoordinates.
+    A class representing schema.org's GeoCoordinates.
     The geographic coordinates of a place or event.
-    See: https://.org/GeoCoordinates
+    See: https://schema.org/GeoCoordinates
     """
     address: Optional[Union[str, PostalAddress]
                       ]  # Physical address of the item.
     # The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
-    addressCountry: Optional[Union[str, 'Country']]
+    addressCountry: Optional[Union[str, Country]]
     # The elevation of a location (WGS 84). Values may be positive or negative, representing height above or below sea level.
     elevation: Optional[Union[float, str]]
     # The latitude of a location. For example 37.42242 (WGS 84).
@@ -93,12 +86,12 @@ class GeoCoordinates(StructuredValue, total=False):
 
 class LocationFeatureSpecification(PropertyValue, total=False):
     """
-    A class representing .org's LocationFeatureSpecification.
+    A class representing schema.org's LocationFeatureSpecification.
     Specifies a location feature by providing a structured value representing a feature of an accommodation as a property-value pair.
-    See: https://.org/LocationFeatureSpecification
+    See: https://schema.org/LocationFeatureSpecification
     """
     # The hours during which this service or contact is available.
-    hoursAvailable: Optional['OpeningHoursSpecification']
+    hoursAvailable: Optional[OpeningHoursSpecification]
     # The date when the item becomes valid.
     validFrom: Optional[Union[date, datetime]]
     # The date after when the item is not valid.
@@ -108,66 +101,66 @@ class LocationFeatureSpecification(PropertyValue, total=False):
 # Place: https://.org/Place
 class Place(StructuredValue, total=False):
     """
-    A class representing .org's Place.
-    See: https://.org/Place
+    A class representing schema.org's Place.
+    See: https://schema.org/Place
     """
     address: Optional[Union[str, PostalAddress]
                       ]  # Physical address of the item.
     # The overall rating, based on a collection of reviews or ratings, of the item.
-    aggregateRating: Optional['AggregateRating']
+    aggregateRating: Optional[AggregateRating]
     # An amenity feature (e.g. a characteristic or service) of the Accommodation.
     amenityFeature: Optional[LocationFeatureSpecification]
     # A short textual code (also called "store code") that uniquely identifies a place of business.
     branchCode: Optional[str]
     # The basic containment relation between places.
-    containedIn: Optional['Place']
+    containedIn: Optional[Place]
     # The basic containment relation between places.
-    containedInPlace: Optional['Place']
+    containedInPlace: Optional[Place]
     # The basic containment relation between places.
-    containsPlace: Optional[Union['Place', List['Place']]]
+    containsPlace: Optional[Union[Place, List[Place]]]
     # Upcoming or past event associated with this place, organization, or action.
     event: Optional[Event]
     faxNumber: Optional[str]  # The fax number.
     # The geo coordinates of the place.
-    geo: Optional[Union['GeoCoordinates', 'GeoShape']]
+    geo: Optional[Union[GeoCoordinates, GeoShape]]
     # Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry.
-    geoContains: Optional['Place']
+    geoContains: Optional[Place]
     # Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it.
-    geoCoveredBy: Optional['Place']
+    geoCoveredBy: Optional[Place]
     # Represents a relationship between two geometries (or the places they represent), relating a geometry to another that it covers.
-    geoCovers: Optional['Place']
+    geoCovers: Optional[Place]
     # Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it.
-    geoCrosses: Optional['Place']
+    geoCrosses: Optional[Place]
     # Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint.
-    geoDisjoint: Optional['Place']
+    geoDisjoint: Optional[Place]
     # Represents spatial relations in which two geometries (or the places they represent) are topologically equal.
-    geoEquals: Optional['Place']
+    geoEquals: Optional[Place]
     # Represents spatial relations in which two geometries (or the places they represent) have at least one point in common.
-    geoIntersects: Optional['Place']
+    geoIntersects: Optional[Place]
     # Represents spatial relations in which two geometries (or the places they represent) overlap.
-    geoOverlaps: Optional['Place']
+    geoOverlaps: Optional[Place]
     # Represents spatial relations in which two geometries (or the places they represent) touch.
-    geoTouches: Optional['Place']
+    geoTouches: Optional[Place]
     # Represents spatial relations in which two geometries (or the places they represent) are within each other.
-    geoWithin: Optional['Place']
+    geoWithin: Optional[Place]
     # The Global Location Number (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place.
     globalLocationNumber: Optional[str]
-    hasMap: Optional[Union[str, 'Map']]  # A URL to a map of the place.
+    hasMap: Optional[Union[str, Map]]  # A URL to a map of the place.
     # A flag to signal that the item, event, or place is accessible for free.
     isAccessibleForFree: Optional[bool]
     # The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
     isicV4: Optional[str]
-    logo: Optional[Union[str, 'ImageObject']]  # An associated logo.
+    logo: Optional[Union[str, ImageObject]]  # An associated logo.
     # The total number of individuals that may attend an event or venue.
     maximumAttendeeCapacity: Optional[int]
     # The opening hours of a certain place.
-    openingHoursSpecification: Optional[Union['OpeningHoursSpecification',
-                                              List['OpeningHoursSpecification']]]
+    openingHoursSpecification: Optional[Union[OpeningHoursSpecification,
+                                              List[OpeningHoursSpecification]]]
     # A photograph of this place.
-    photo: Optional[Union['ImageObject', 'Photograph']]
+    photo: Optional[Union[ImageObject, Photograph]]
     # A flag to signal that the Place is open to public visitors.
     publicAccess: Optional[bool]
-    review: Optional[Union['Review', List['Review']]]  # A review of the item.
+    review: Optional[Union[Review, List[Review]]]  # A review of the item.
     slogan: Optional[str]  # A slogan or motto associated with the item.
     # Indicates whether it is allowed to smoke in the place, e.g. in the restaurant, hotel or hotel room.
     smokingAllowed: Optional[bool]
@@ -181,8 +174,8 @@ class Place(StructuredValue, total=False):
 # AdministrativeArea: https://.org/AdministrativeArea
 class AdministrativeArea(Place, total=False):
     """
-    A class representing .org's AdministrativeArea.
-    See: https://.org/AdministrativeArea
+    A class representing schema.org's AdministrativeArea.
+    See: https://schema.org/AdministrativeArea
     """
     pass  # An administrative area is a type of Place.
 
@@ -190,8 +183,8 @@ class AdministrativeArea(Place, total=False):
 # Country: https://.org/Country
 class Country(AdministrativeArea, total=False):
     """
-    A class representing .org's Country.
-    See: https://.org/Country
+    A class representing schema.org's Country.
+    See: https://schema.org/Country
     """
     pass  # A country is a type of AdministrativeArea.
 
@@ -199,8 +192,8 @@ class Country(AdministrativeArea, total=False):
 # Audience: https://.org/Audience
 class Audience(StructuredValue, total=False):
     """
-    A class representing .org's Audience.
-    See: https://.org/Audience
+    A class representing schema.org's Audience.
+    See: https://schema.org/Audience
     """
     audienceType: Optional[
         # The target group associated with a given audience (e.g. veterans, car owners, musicians, etc.).
@@ -212,8 +205,8 @@ class Audience(StructuredValue, total=False):
 # GeoShape: https://.org/GeoShape
 class GeoShape(StructuredValue, total=False):
     """
-    A class representing .org's GeoShape.
-    See: https://.org/GeoShape
+    A class representing schema.org's GeoShape.
+    See: https://schema.org/GeoShape
     """
     address: Optional[Union[str, PostalAddress]
                       ]  # Physical address of the item.

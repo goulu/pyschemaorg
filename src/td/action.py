@@ -1,3 +1,4 @@
+from __future__ import annotations
 from datetime import datetime
 from typing import Optional, Union
 
@@ -12,11 +13,11 @@ import enum
 
 class EntryPoint(Thing, total=False):
     """
-    A class representing .org's EntryPoint.
+    A class representing schema.org's EntryPoint.
     An entry point, within some Web-based protocol.
-    See: https://.org/EntryPoint
+    See: https://schema.org/EntryPoint
     """
-    actionApplication: Optional['SoftwareApplication']  # An application that can complete the request.
+    actionApplication: Optional[SoftwareApplication]  # An application that can complete the request.
     # The high level platform(s) where the Action can be performed for the given URL.
     # To specify a specific application or operating system instance, use actionApplication.
     actionPlatform: Optional[Union[Text, URL]]
@@ -40,24 +41,26 @@ class ActionStatusType(enum.Enum):
 
 class Action(Thing, total=False):
     """
-    A class representing .org's Action.
-    See: https://.org/Action
+    A class representing schema.org's Action.
+    See: https://schema.org/Action
     """
     actionStatus: Optional[ActionStatusType]  # Indicates the current disposition of the Action.
     # The direct performer or driver of the action (animate or inanimate).
     agent: Optional[Union[Person, Organization]]
     endTime: Optional[datetime]  # The end time of something.
     # For failed actions, more information on the cause of the failure.
-    error: Optional['Thing']
+    error: Optional[Thing]
     # The object that helped the agent perform the action.
-    instrument: Optional['Thing']
+    instrument: Optional[Thing]
     # The location of for example where the event is happening, an organization is located, or where an action takes place.
-    location: Optional[Union[Place, Text, PostalAddress, VirtualLocation]]
+    location: Optional[Union[Place, Text,
+                             PostalAddress, VirtualLocation]]
     # The object upon which the action is carried out, whose state is kept intact or changed.
-    object: Optional['Thing']
+    object: Optional[Thing]
     # Other co-agents that participated in the action indirectly.
     participant: Optional[Union[Person, Organization]]
-    result: Optional['Thing']  # The result produced in the action.
+    result: Optional[Thing]  # The result produced in the action.
     startTime: Optional[datetime]  # The start time of something.
+
     # Indicates a target EntryPoint for an Action.
     target: Optional[EntryPoint]

@@ -1,3 +1,4 @@
+from __future__ import annotations
 from typing import Optional, Union
 from datetime import date, time, datetime, timedelta
 from .values import StructuredValue
@@ -11,8 +12,8 @@ Duration = timedelta
 
 class OpeningHoursSpecification(StructuredValue, total=False):
     """
-    A class representing .org's OpeningHoursSpecification.
-    See: https://.org/OpeningHoursSpecification
+    A class representing schema.org's OpeningHoursSpecification.
+    See: https://schema.org/OpeningHoursSpecification
     """
     # The closing hour of the place or service on the given day(s) of the week.
     closes: Optional[time]

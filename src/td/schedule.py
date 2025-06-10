@@ -1,4 +1,4 @@
-
+from __future__ import annotations
 from datetime import datetime
 from typing import List, Optional, Union
 from .thing import Intangible
@@ -6,8 +6,8 @@ from .thing import Intangible
 
 class Schedule(Intangible, total=False):
     """
-    A class representing .org's Schedule.
-    See: https://.org/Schedule
+    A class representing schema.org's Schedule.
+    See: https://schema.org/Schedule
     """
     byDay: Optional[Union[str, List[str]]]
     byMonth: Optional[Union[int, List[int]]]

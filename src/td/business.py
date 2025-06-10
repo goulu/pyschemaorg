@@ -1,15 +1,8 @@
-
+from __future__ import annotations
 from datetime import datetime
 from typing import Optional, List, Union
-
-from .person import Person
-from .creative_work import Review
-from .media_object import ImageObject
-from .place import Place, GeoShape, AdministrativeArea, Audience
-from .rating import AggregateRating
-from .values import PropertyValue, QuantitativeValue, StructuredValue
 from .thing import Intangible, Thing, URL
-from .organization import Organization
+from .values import StructuredValue
 from .enums import BusinessFunction, OfferItemCondition, EnergyConsumptionDetails, WarrantyScope
 
 
@@ -33,26 +26,26 @@ class Product(Thing, total=False):
     releaseDate: Optional[str]
     color: Optional[str]
     material: Optional[str]
-    weight: Optional["QuantitativeValue"]
-    height: Optional["QuantitativeValue"]
-    width: Optional["QuantitativeValue"]
-    depth: Optional["QuantitativeValue"]
-    audience: Optional["Audience"]
+    weight: Optional[QuantitativeValue]
+    height: Optional[QuantitativeValue]
+    width: Optional[QuantitativeValue]
+    depth: Optional[QuantitativeValue]
+    audience: Optional[Audience]
     category: Optional[str]
-    isAccessoryOrSparePartFor: Optional[List["Product"]]
-    isConsumableFor: Optional[List["Product"]]
-    isRelatedTo: Optional[List["Product"]]
-    isSimilarTo: Optional[List["Product"]]
-    itemCondition: Optional["OfferItemCondition"]
+    isAccessoryOrSparePartFor: Optional[List[Product]]
+    isConsumableFor: Optional[List[Product]]
+    isRelatedTo: Optional[List[Product]]
+    isSimilarTo: Optional[List[Product]]
+    itemCondition: Optional[OfferItemCondition]
     model: Optional[str]
-    additionalProperty: Optional[List["PropertyValue"]]
+    additionalProperty: Optional[List[PropertyValue]]
     award: Optional[str]
     gtin: Optional[str]
-    hasEnergyConsumptionDetails: Optional["EnergyConsumptionDetails"]
-    hasMeasurement: Optional["QuantitativeValue"]
+    hasEnergyConsumptionDetails: Optional[EnergyConsumptionDetails]
+    hasMeasurement: Optional[QuantitativeValue]
     inProductGroupWithID: Optional[str]
     pattern: Optional[str]
-    productLine: Optional["Product"]
+    productLine: Optional[Product]
     productionDate: Optional[str]
     purchaseDate: Optional[str]
     releaseNotes: Optional[str]
@@ -99,8 +92,8 @@ class WarrantyPromise(Intangible, total=False):
 
 class Offer(Intangible, total=False):
     """
-    A class representing .org's Offer.
-    See: https://.org/Offer
+    A class representing schema.org's Offer.
+    See: https://schema.org/Offer
     """
     acceptedPaymentMethod: Optional[str]
     addOn: Optional["Offer"]
@@ -146,8 +139,8 @@ class Offer(Intangible, total=False):
 
 class Demand(Intangible, total=False):
     """
-    A class representing .org's Demand.
-    See: https://.org/Demand
+    A class representing schema.org's Demand.
+    See: https://schema.org/Demand
     """
     acceptedPaymentMethod: Optional[str]
     addOn: Optional[Offer]
@@ -188,8 +181,8 @@ class Demand(Intangible, total=False):
 
 class OwnershipInfo(Intangible, total=False):
     """
-    A class representing .org's OwnershipInfo.
-    See: https://.org/OwnershipInfo
+    A class representing schema.org's OwnershipInfo.
+    See: https://schema.org/OwnershipInfo
     """
     acquiredFrom: Optional[Union[Organization, Person]]
     ownedFrom: Optional[datetime]

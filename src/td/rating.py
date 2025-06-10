@@ -1,3 +1,4 @@
+from __future__ import annotations
 from typing import Optional, Union
 from .thing import Thing
 from .person import Person
@@ -6,8 +7,8 @@ from .organization import Organization
 
 class Rating(Thing, total=False):
     """
-    A class representing .org's Rating.
-    See: https://.org/Rating
+    A class representing schema.org's Rating.
+    See: https://schema.org/Rating
     """
     author: Optional[Union[str, Person, Organization]]
     bestRating: Optional[Union[str, float, int]]
@@ -19,8 +20,8 @@ class Rating(Thing, total=False):
 
 class AggregateRating(Rating, total=False):
     """
-    A class representing .org's AggregateRating.
-    See: https://.org/AggregateRating
+    A class representing schema.org's AggregateRating.
+    See: https://schema.org/AggregateRating
     """
     itemReviewed: Optional[Union[str, Thing]]
     ratingCount: Optional[int]

@@ -1,11 +1,12 @@
-from typing import TypedDict, Optional, Union, List
+from __future__ import annotations
+from typing import Optional, Union, List
 from .thing import Thing, Intangible
 
 
 class StructuredValue(Intangible, total=False):
     """
-    A class representing .org's StructuredValue.
-    See: https://.org/StructuredValue
+    A class representing schema.org's StructuredValue.
+    See: https://schema.org/StructuredValue
     """
     # StructuredValue does not define additional properties beyond Intangible as of June 2024.
     pass
@@ -13,10 +14,10 @@ class StructuredValue(Intangible, total=False):
 
 class QuantitativeValue(StructuredValue, total=False):
     """
-    A class representing .org's QuantitativeValue.
-    See: https://.org/QuantitativeValue
+    A class representing schema.org's QuantitativeValue.
+    See: https://schema.org/QuantitativeValue
     """
-    additionalProperty: Optional[Union['PropertyValue', List['PropertyValue']]]
+    additionalProperty: Optional[Union[PropertyValue, List[PropertyValue]]]
     maxValue: Optional[Union[float, int]]
     minValue: Optional[Union[float, int]]
     unitCode: Optional[str]
@@ -28,8 +29,8 @@ class QuantitativeValue(StructuredValue, total=False):
 
 class PropertyValue(StructuredValue, total=False):
     """
-    A class representing .org's PropertyValue.
-    See: https://.org/PropertyValue
+    A class representing schema.org's PropertyValue.
+    See: https://schema.org/PropertyValue
     """
     maxValue: Optional[Union[float, int]]
     minValue: Optional[Union[float, int]]

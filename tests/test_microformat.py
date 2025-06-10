@@ -126,3 +126,7 @@ class TestEvent(unittest.TestCase):
         # if processed_event_objects:
         #     print("First processed Event object:")
         #     pprint(processed_event_objects[0])
+
+
+if __name__ == '__main__':
+    unittest.main()
