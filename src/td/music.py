@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import List, Optional, Text, Union
+from typing import List, Union, Text
 
 from .thing import URL
 from .date_time import Duration
@@ -16,8 +16,8 @@ class MusicPlaylist(CreativeWork, total=False):
     A class representing schema.org's MusicPlaylist.
     See: https://schema.org/MusicPlaylist
     """
-    numTracks: Optional[int]
-    track: Optional[List[Union[ItemList, MusicRecording]]]
+    numTracks: int
+    track: List[Union[ItemList, 'MusicRecording']]
 
 
 class MusicGroup(Organization, total=False):
@@ -25,11 +25,11 @@ class MusicGroup(Organization, total=False):
     A class representing schema.org's MusicGroup.
     See: https://schema.org/MusicGroup
     """
-    genre: Optional[Union[Text, URL]]
+    genre: Union[Text, URL]
     # Could be MusicAlbum, using str for simplicity
-    album: Optional[List[str]]
+    album: List[str]
     # Could be MusicRecording, using str for simplicity
-    track: Optional[List[str]]
+    track: List[str]
 
 
 class MusicRecording(CreativeWork, total=False):
@@ -37,13 +37,13 @@ class MusicRecording(CreativeWork, total=False):
     A class representing schema.org's MusicRecording.
     See: https://schema.org/MusicRecording
     """
-    byArtist: Optional[Union[MusicGroup, Person]]
-    duration: Optional[Duration]
-    inAlbum: Optional[MusicAlbum]
-    inPlaylist: Optional[MusicPlaylist]
-    isrcCode: Optional[Text]
-    recordingOf: Optional[MusicComposition]
-    releasedEvent: Optional[PublicationEvent]
+    byArtist: Union['MusicGroup', Person]
+    duration: Duration
+    inAlbum: 'MusicAlbum'
+    inPlaylist: 'MusicPlaylist'
+    isrcCode: Text
+    recordingOf: 'MusicComposition'
+    releasedEvent: PublicationEvent
 
 
 class MusicComposition(CreativeWork, total=False):
@@ -51,16 +51,16 @@ class MusicComposition(CreativeWork, total=False):
     A class representing schema.org's MusicComposition.
     See: https://schema.org/MusicComposition
     """
-    composer: Optional[Union[Organization, Person]]
-    firstPerformance: Optional[Event]
-    includedComposition: Optional[MusicComposition]
-    iswcCode: Optional[Text]
-    lyricist: Optional[Person]
-    lyrics: Optional[CreativeWork]
-    musicArrangement: Optional[MusicComposition]
-    musicCompositionForm: Optional[Text]
-    musicalKey: Optional[Text]
-    recordedAs: Optional[MusicRecording]
+    composer: Union[Organization, Person]
+    firstPerformance: Event
+    includedComposition: 'MusicComposition'
+    iswcCode: Text
+    lyricist: Person
+    lyrics: CreativeWork
+    musicArrangement: 'MusicComposition'
+    musicCompositionForm: Text
+    musicalKey: Text
+    recordedAs: 'MusicRecording'
 
 
 class MusicAlbumProductionType(enum.Enum):
@@ -85,12 +85,12 @@ class MusicRelease(CreativeWork, total=False):
     A class representing schema.org's MusicRelease.
     See: https://schema.org/MusicRelease
     """
-    catalogNumber: Optional[Text]
-    creditedTo: Optional[Union[Organization, Person]]
-    duration: Optional[Duration]
-    musicReleaseFormat: Optional[MusicReleaseFormatType]
-    recordLabel: Optional[Organization]
-    releaseOf: Optional[MusicAlbum]
+    catalogNumber: Text
+    creditedTo: Union[Organization, Person]
+    duration: Duration
+    musicReleaseFormat: 'MusicReleaseFormatType'
+    recordLabel: Organization
+    releaseOf: 'MusicAlbum'
 
 
 class MusicAlbumReleaseType(enum.Enum):

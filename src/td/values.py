@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Optional, Union, List
+from typing import Union, List
 from .thing import Thing, Intangible
 
 
@@ -17,14 +17,13 @@ class QuantitativeValue(StructuredValue, total=False):
     A class representing schema.org's QuantitativeValue.
     See: https://schema.org/QuantitativeValue
     """
-    additionalProperty: Optional[Union[PropertyValue, List[PropertyValue]]]
-    maxValue: Optional[Union[float, int]]
-    minValue: Optional[Union[float, int]]
-    unitCode: Optional[str]
-    unitText: Optional[str]
-    value: Optional[Union[str, float, int, bool,
-                          List[Union[str, float, int, bool]]]]
-    valueReference: Optional[Union[str, Thing, List[Union[str, Thing]]]]
+    additionalProperty: Union['PropertyValue', List['PropertyValue']]
+    maxValue: Union[float, int]
+    minValue: Union[float, int]
+    unitCode: str
+    unitText: str
+    value: Union[str, float, int, bool, List[Union[str, float, int, bool]]]
+    valueReference: Union[str, Thing, List[Union[str, Thing]]]
 
 
 class PropertyValue(StructuredValue, total=False):
@@ -32,13 +31,12 @@ class PropertyValue(StructuredValue, total=False):
     A class representing schema.org's PropertyValue.
     See: https://schema.org/PropertyValue
     """
-    maxValue: Optional[Union[float, int]]
-    minValue: Optional[Union[float, int]]
-    unitCode: Optional[str]
-    unitText: Optional[str]
-    value: Optional[Union[str, float, int, bool,
-                          List[Union[str, float, int, bool]]]]
-    valueReference: Optional[Union[str, Thing, QuantitativeValue,
-                                   List[Union[str, Thing, QuantitativeValue]]]]
-    measurementTechnique: Optional[Union[str, List[str]]]
-    propertyID: Optional[str]
+    maxValue: Union[float, int]
+    minValue: Union[float, int]
+    unitCode: str
+    unitText: str
+    value: Union[str, float, int, bool, List[Union[str, float, int, bool]]]
+    valueReference: Union[str, Thing, 'QuantitativeValue',
+                          List[Union[str, Thing, 'QuantitativeValue']]]
+    measurementTechnique: Union[str, List[str]]
+    propertyID: str

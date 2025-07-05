@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Optional, Union
+from typing import Union
 from .values import StructuredValue
 from .enums import DayOfWeek  # Assuming DayOfWeek is defined in enums module
 
@@ -18,12 +18,12 @@ class OpeningHoursSpecification(StructuredValue, total=False):
     See: https://schema.org/OpeningHoursSpecification
     """
     # The closing hour of the place or service on the given day(s) of the week.
-    closes: Optional[Time]
+    closes: Time
     # The day of the week for which these opening hours are valid.
-    dayOfWeek: Optional[DayOfWeek]
+    dayOfWeek: DayOfWeek
     # The opening hour of the place or service on the given day(s) of the week.
-    opens: Optional[Time]
+    opens: Time
     # The date when the item becomes valid.
-    validFrom: Optional[Union[Date, DateTime]]
+    validFrom: Union[Date, DateTime]
     # The date after when the item is not valid.
-    validThrough: Optional[Union[Date, DateTime]]
+    validThrough: Union[Date, DateTime]

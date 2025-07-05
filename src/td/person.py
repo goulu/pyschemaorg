@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Optional, Union, List
+from typing import Union, List
 from .thing import Thing
 
 
@@ -8,61 +8,61 @@ class Person(Thing, total=False):
     A class representing schema.org's Person.
     See: https://schema.org/Person
     """
-    additionalName: Optional[Union[str, List[str]]]
-    address: Optional[Union[str, PostalAddress, Place,
-                            List[Union[str, PostalAddress, Place]]]]
-    affiliation: Optional[Union[Organization, List[Organization]]]
-    alumniOf: Optional[Union[Organization, List[Organization]]]
-    award: Optional[Union[str, List[str]]]
-    birthDate: Optional[str]
-    birthPlace: Optional[Place]
-    brand: Optional[Union[Organization, List[Organization]]]
-    children: Optional[Union[Person, List[Person]]]
-    colleague: Optional[Union[Person, Organization,
-                              List[Union[Person, Organization]]]]
-    contactPoint: Optional[Union[ContactPoint, List[ContactPoint]]]
-    deathDate: Optional[str]
-    deathPlace: Optional[Place]
-    duns: Optional[str]
-    email: Optional[str]
-    familyName: Optional[str]
-    faxNumber: Optional[str]
-    follows: Optional[Union[Person, List[Person]]]
-    funder: Optional[Union[Organization, List[Organization]]]
-    gender: Optional[str]
-    givenName: Optional[str]
-    globalLocationNumber: Optional[str]
-    hasOccupation: Optional[str]
-    hasOfferCatalog: Optional[str]
-    hasPOS: Optional[Place]
-    height: Optional[Union[str, QuantitativeValue]]
-    homeLocation: Optional[Place]
-    honorificPrefix: Optional[str]
-    honorificSuffix: Optional[str]
-    interactionStatistic: Optional[InteractionCounter]
-    isicV4: Optional[str]
-    jobTitle: Optional[str]
-    knows: Optional[Union[Person, List[Person]]]
-    knowsAbout: Optional[Union[str, List[str]]]
-    knowsLanguage: Optional[Union[str, List[str]]]
-    makesOffer: Optional[Offer]
-    memberOf: Optional[Union[Organization, List[Organization]]]
-    naics: Optional[str]
-    nationality: Optional[str]
-    netWorth: Optional[Union[str, QuantitativeValue]]
-    owns: Optional[Union[Product, OwnershipInfo,
-                         List[Union[Product, OwnershipInfo]]]]
-    parent: Optional[Union[Person, List[Person]]]
-    performerIn: Optional[Union[Event, List[Event]]]
-    publishingPrinciples: Optional[Union[str, CreativeWork]]
-    relatedTo: Optional[Union[Person, List[Person]]]
-    seeks: Optional[Demand]
-    sibling: Optional[Union[Person, List[Person]]]
-    sponsor: Optional[Union[Organization, List[Organization]]]
-    spouse: Optional[Person]
-    taxID: Optional[str]
-    telephone: Optional[str]
-    vatID: Optional[str]
-    weight: Optional[Union[str, QuantitativeValue]]
-    workLocation: Optional[Place]
-    worksFor: Optional[Union[Organization, List[Organization]]]
+    additionalName: Union[str, List[str]]
+    address: Union[str, 'PostalAddress', 'Place',
+                   List[Union[str, 'PostalAddress', 'Place']]]
+    affiliation: Union['Organization', List['Organization']]
+    alumniOf: Union['Organization', List['Organization']]
+    award: Union[str, List[str]]
+    birthDate: str
+    birthPlace: 'Place'
+    brand: Union['Organization', List['Organization']]
+    children: Union['Person', List['Person']]
+    colleague: Union['Person', 'Organization',
+                     List[Union['Person', 'Organization']]]
+    contactPoint: Union['ContactPoint', List['ContactPoint']]
+    deathDate: str
+    deathPlace: 'Place'
+    duns: str
+    email: str
+    familyName: str
+    faxNumber: str
+    follows: Union['Person', List['Person']]
+    funder: Union['Organization', List['Organization']]
+    gender: str
+    givenName: str
+    globalLocationNumber: str
+    hasOccupation: str
+    hasOfferCatalog: str
+    hasPOS: 'Place'
+    height: Union[str, 'QuantitativeValue']
+    homeLocation: 'Place'
+    honorificPrefix: str
+    honorificSuffix: str
+    interactionStatistic: 'InteractionCounter'
+    isicV4: str
+    jobTitle: str
+    knows: Union['Person', List['Person']]
+    knowsAbout: Union[str, List[str]]
+    knowsLanguage: Union[str, List[str]]
+    makesOffer: 'Offer'
+    memberOf: Union['Organization', List['Organization']]
+    naics: str
+    nationality: str
+    netWorth: Union[str, 'QuantitativeValue']
+    owns: Union['Product', 'OwnershipInfo',
+                List[Union['Product', 'OwnershipInfo']]]
+    parent: Union['Person', List['Person']]
+    performerIn: Union['Event', List['Event']]
+    publishingPrinciples: Union[str, 'CreativeWork']
+    relatedTo: Union['Person', List['Person']]
+    seeks: 'Demand'
+    sibling: Union['Person', List['Person']]
+    sponsor: Union['Organization', List['Organization']]
+    spouse: 'Person'
+    taxID: str
+    telephone: str
+    vatID: str
+    weight: Union[str, 'QuantitativeValue']
+    workLocation: 'Place'
+    worksFor: Union['Organization', List['Organization']]
