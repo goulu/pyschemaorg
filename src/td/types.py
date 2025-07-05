@@ -9,7 +9,7 @@ class _Supersedable(Intangible, total=False):
     """
     base class for classes below. not in .org
     """
-    supersededBy: Union['Enumeration', 'Class', 'Property']
+    supersededBy: Union[Enumeration, Class, Property]
 
 
 class Enumeration(_Supersedable, total=False):
@@ -30,9 +30,9 @@ class Property(_Supersedable, total=False):
     """
     Derived from https://.org/Property
     """
-    domainIncludes: 'Class'
-    rangeIncludes: 'Class'
-    inverseOf: 'Property'
+    domainIncludes: Class
+    rangeIncludes: Class
+    inverseOf: Property
 
 
 class ListItem(Intangible, total=False):
@@ -41,9 +41,9 @@ class ListItem(Intangible, total=False):
     See: https://schema.org/ListItem
     """
     item: Thing
-    nextItem: 'ListItem'
+    nextItem: ListItem
     position: Union[int, str]
-    previousItem: 'ListItem'
+    previousItem: ListItem
     # Inherits all fields from Intangible/Thing
 
 
@@ -52,8 +52,8 @@ class ItemList(Intangible, total=False):
     A class representing schema.org's ItemList.
     See: https://schema.org/ItemList
     """
-    itemListElement: Union[Thing, 'ListItem', str]
+    itemListElement: Union[Thing, ListItem, str]
     numberOfItems: int
     itemListOrder: ItemListOrderType
-    aggregateElement: Union[Thing, 'ListItem', str]
+    aggregateElement: Union[Thing, ListItem, str]
     # Inherits all fields from Intangible/Thing

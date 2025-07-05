@@ -42,7 +42,7 @@ class Event(Thing, total=False):
     """A director of e.g. a movie, TV series, or radio program."""
     doorTime: Union[DateTime, Time]
     """The time admission will commence."""
-    duration: 'Duration'
+    duration: Duration
     """The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format."""
     endDate: Union[Date, DateTime]
     """The end date and time of the item (in ISO 8601 date format)."""
@@ -70,7 +70,7 @@ class Event(Thing, total=False):
     """An organizer of an Event."""
     performer: PersOrg
     """A performer at the event—for example, a presenter, musician, musical group or actor."""
-    previousStartDate: 'Date'
+    previousStartDate: Date
     """Used in conjunction with eventStatus for rescheduled or cancelled events."""
     recordedIn: CreativeWork
     """The CreativeWork that captured all or part of this Event."""
@@ -80,7 +80,7 @@ class Event(Thing, total=False):
     """A review of the item."""
     sponsor: PersOrg
     """A person or organization that supports a thing through a pledge, promise, or financial contribution."""
-    startDate: Union['Date', 'DateTime']
+    startDate: Union[Date, DateTime]
     """The start date and time of the item (in ISO 8601 date format)."""
     subEvent: Event
     """An Event that is part of this Event."""

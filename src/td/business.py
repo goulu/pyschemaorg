@@ -12,11 +12,11 @@ class Product(Thing, total=False):
     description: str
     sku: str
     mpn: str
-    brand: 'Brand'
-    manufacturer: 'Organization'
-    review: 'Review'
-    aggregateRating: 'AggregateRating'
-    offers: 'Offer'
+    brand: Brand
+    manufacturer: Organization
+    review: Review
+    aggregateRating: AggregateRating
+    offers: Offer
     url: URL
     gtin8: str
     gtin12: str
@@ -26,26 +26,26 @@ class Product(Thing, total=False):
     releaseDate: str
     color: str
     material: str
-    weight: 'QuantitativeValue'
-    height: 'QuantitativeValue'
-    width: 'QuantitativeValue'
-    depth: 'QuantitativeValue'
-    audience: 'Audience'
+    weight: QuantitativeValue
+    height: QuantitativeValue
+    width: QuantitativeValue
+    depth: QuantitativeValue
+    audience: Audience
     category: str
-    isAccessoryOrSparePartFor: List['Product']
-    isConsumableFor: List['Product']
-    isRelatedTo: List['Product']
-    isSimilarTo: List['Product']
+    isAccessoryOrSparePartFor: List[Product]
+    isConsumableFor: List[Product]
+    isRelatedTo: List[Product]
+    isSimilarTo: List[Product]
     itemCondition: OfferItemCondition
     model: str
-    additionalProperty: List['PropertyValue']
+    additionalProperty: List[PropertyValue]
     award: str
     gtin: str
     hasEnergyConsumptionDetails: EnergyConsumptionDetails
-    hasMeasurement: 'QuantitativeValue'
+    hasMeasurement: QuantitativeValue
     inProductGroupWithID: str
     pattern: str
-    productLine: 'Product'
+    productLine: Product
     productionDate: str
     purchaseDate: str
     releaseNotes: str
@@ -57,8 +57,8 @@ class PriceSpecification(Intangible, total=False):
     """A structured value representing a price or price range."""
     price: float
     priceCurrency: str
-    eligibleQuantity: 'QuantitativeValue'
-    eligibleTransactionVolume: 'PriceSpecification'
+    eligibleQuantity: QuantitativeValue
+    eligibleTransactionVolume: PriceSpecification
     maxPrice: float
     minPrice: float
     validFrom: str
@@ -66,7 +66,7 @@ class PriceSpecification(Intangible, total=False):
     valueAddedTaxIncluded: bool
     billingIncrement: float
     priceType: str
-    referenceQuantity: 'QuantitativeValue'
+    referenceQuantity: QuantitativeValue
     unitCode: str
     unitText: str
 
@@ -74,7 +74,7 @@ class PriceSpecification(Intangible, total=False):
 class TypeAndQuantityNode(StructuredValue, total=False):
     """A structured value indicating the quantity, unit of measurement, and business function of goods included in a bundle offer."""
     amountOfThisGood: float
-    typeOfGood: 'Product'
+    typeOfGood: Product
     unitCode: str
     businessFunction: BusinessFunction
     unitText: str
@@ -83,7 +83,7 @@ class TypeAndQuantityNode(StructuredValue, total=False):
 
 class WarrantyPromise(Intangible, total=False):
     """A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product."""
-    durationOfWarranty: 'QuantitativeValue'
+    durationOfWarranty: QuantitativeValue
     warrantyScope: WarrantyScope
 
 
@@ -93,44 +93,44 @@ class Offer(Intangible, total=False):
     See: https://schema.org/Offer
     """
     acceptedPaymentMethod: str
-    addOn: 'Offer'
-    advanceBookingRequirement: 'QuantitativeValue'
-    areaServed: Union['Place', 'AdministrativeArea', 'GeoShape', str]
+    addOn: Offer
+    advanceBookingRequirement: QuantitativeValue
+    areaServed: Union[Place, AdministrativeArea, GeoShape, str]
     asin: str
     availability: str
     availabilityEnds: datetime
     availabilityStarts: datetime
-    availableAtOrFrom: 'Place'
+    availableAtOrFrom: Place
     availableDeliveryMethod: str
     businessFunction: BusinessFunction
     category: str
-    deliveryLeadTime: 'QuantitativeValue'
+    deliveryLeadTime: QuantitativeValue
     eligibleCustomerType: str
-    eligibleDuration: 'QuantitativeValue'
-    eligibleQuantity: 'QuantitativeValue'
-    eligibleRegion: Union['Place', 'AdministrativeArea', 'GeoShape', str]
-    eligibleTransactionVolume: 'PriceSpecification'
+    eligibleDuration: QuantitativeValue
+    eligibleQuantity: QuantitativeValue
+    eligibleRegion: Union[Place, AdministrativeArea, GeoShape, str]
+    eligibleTransactionVolume: PriceSpecification
     gtin12: str
     gtin13: str
     gtin14: str
     gtin8: str
-    includesObject: 'TypeAndQuantityNode'
-    ineligibleRegion: Union['Place', 'AdministrativeArea', 'GeoShape', str]
-    inventoryLevel: 'QuantitativeValue'
+    includesObject: TypeAndQuantityNode
+    ineligibleRegion: Union[Place, AdministrativeArea, GeoShape, str]
+    inventoryLevel: QuantitativeValue
     itemCondition: OfferItemCondition
-    itemOffered: 'Product'
+    itemOffered: Product
     mpn: str
-    priceSpecification: 'PriceSpecification'
+    priceSpecification: PriceSpecification
     price: float
     priceCurrency: str
-    seller: 'Organization'
+    seller: Organization
     serialNumber: str
     sku: str
     validFrom: datetime
     validThrough: datetime
-    warranty: 'WarrantyPromise'
-    review: 'Review'
-    aggregateRating: 'AggregateRating'
+    warranty: WarrantyPromise
+    review: Review
+    aggregateRating: AggregateRating
     url: URL
 
 
@@ -140,40 +140,40 @@ class Demand(Intangible, total=False):
     See: https://schema.org/Demand
     """
     acceptedPaymentMethod: str
-    addOn: 'Offer'
-    advanceBookingRequirement: 'QuantitativeValue'
-    areaServed: Union['Place', 'AdministrativeArea', 'GeoShape', str]
+    addOn: Offer
+    advanceBookingRequirement: QuantitativeValue
+    areaServed: Union[Place, AdministrativeArea, GeoShape, str]
     asin: str
     availability: str
     availabilityEnds: datetime
     availabilityStarts: datetime
-    availableAtOrFrom: 'Place'
+    availableAtOrFrom: Place
     availableDeliveryMethod: str
     businessFunction: BusinessFunction
     category: str
-    deliveryLeadTime: 'QuantitativeValue'
+    deliveryLeadTime: QuantitativeValue
     eligibleCustomerType: str
-    eligibleDuration: 'QuantitativeValue'
-    eligibleQuantity: 'QuantitativeValue'
-    eligibleRegion: Union['Place', 'AdministrativeArea', 'GeoShape', str]
-    eligibleTransactionVolume: 'PriceSpecification'
+    eligibleDuration: QuantitativeValue
+    eligibleQuantity: QuantitativeValue
+    eligibleRegion: Union[Place, AdministrativeArea, GeoShape, str]
+    eligibleTransactionVolume: PriceSpecification
     gtin12: str
     gtin13: str
     gtin14: str
     gtin8: str
-    includesObject: 'TypeAndQuantityNode'
-    ineligibleRegion: Union['Place', 'AdministrativeArea', 'GeoShape', str]
-    inventoryLevel: 'QuantitativeValue'
+    includesObject: TypeAndQuantityNode
+    ineligibleRegion: Union[Place, AdministrativeArea, GeoShape, str]
+    inventoryLevel: QuantitativeValue
     itemCondition: OfferItemCondition
-    itemOffered: 'Product'
+    itemOffered: Product
     mpn: str
-    priceSpecification: 'PriceSpecification'
-    seller: 'Organization'
+    priceSpecification: PriceSpecification
+    seller: Organization
     serialNumber: str
     sku: str
     validFrom: datetime
     validThrough: datetime
-    warranty: 'WarrantyPromise'
+    warranty: WarrantyPromise
 
 
 class OwnershipInfo(Intangible, total=False):
@@ -181,21 +181,21 @@ class OwnershipInfo(Intangible, total=False):
     A class representing schema.org's OwnershipInfo.
     See: https://schema.org/OwnershipInfo
     """
-    acquiredFrom: Union['Organization', 'Person']
+    acquiredFrom: Union[Organization, Person]
     ownedFrom: datetime
     ownedThrough: datetime
-    typeOfGood: Union['Product', List['Product']]
-    ownedQuantity: 'QuantitativeValue'
+    typeOfGood: Union[Product, List[Product]]
+    ownedQuantity: QuantitativeValue
 
 
 class Brand(Intangible, total=False):
     """A brand is a name used by an organization or business person for labeling a product, product group, or similar."""
-    logo: 'ImageObject'
-    review: 'Review'
-    aggregateRating: 'AggregateRating'
+    logo: ImageObject
+    review: Review
+    aggregateRating: AggregateRating
     slogan: str
     url: URL
     name: str
     description: str
-    owner: 'Organization'
-    product: List['Product']
+    owner: Organization
+    product: List[Product]

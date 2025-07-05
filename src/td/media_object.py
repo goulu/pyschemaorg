@@ -18,10 +18,10 @@ class MediaObject(CreativeWork, total=False):
     encodesCreativeWork: CreativeWork
     endTime: str
     height: Union[str, QuantitativeValue]
-    ineligibleRegion: Union[str, 'Place', List[Union[str, 'Place']]]
+    ineligibleRegion: Union[str, Place, List[Union[str, Place]]]
     playerType: str
-    productionCompany: 'Organization'
-    regionsAllowed: Union[str, 'Place', List[Union[str, 'Place']]]
+    productionCompany: Organization
+    regionsAllowed: Union[str, Place, List[Union[str, Place]]]
     requiresSubscription: Union[bool, str, CreativeWork]
     sha256: str
     startTime: str
@@ -38,8 +38,8 @@ class AudioObject(MediaObject, total=False):
     caption: Union[str, CreativeWork]
     transcript: str
     # already in MediaObject
-    regionsAllowed: Union[str, 'Place', List[Union[str, 'Place']]]
-    productionCompany: 'Organization'  # already in MediaObject
+    regionsAllowed: Union[str, Place, List[Union[str, Place]]]
+    productionCompany: Organization  # already in MediaObject
     # Inherits all fields from MediaObject
 
 
@@ -51,7 +51,7 @@ class ImageObject(MediaObject, total=False):
     caption: Union[str, CreativeWork]
     exifData: Union[str, CreativeWork]
     representativeOfPage: bool
-    thumbnail: Union[str, 'ImageObject', List[Union[str, 'ImageObject']]]
+    thumbnail: Union[str, ImageObject, List[Union[str, ImageObject]]]
     associatedArticle: CreativeWork  # already in MediaObject
     embeddedTextCaption: str
     height: Union[str, QuantitativeValue]  # already in MediaObject
@@ -64,11 +64,11 @@ class VideoObject(MediaObject, total=False):
     A class representing schema.org's VideoObject.
     See: https://schema.org/VideoObject
     """
-    actor: Union[str, 'Person', List[Union[str, 'Person']]]
+    actor: Union[str, Person, List[Union[str, Person]]]
     caption: Union[str, CreativeWork, bool]
-    director: Union[str, 'Person', List[Union[str, 'Person']]]
-    musicBy: Union[str, 'Person', 'Organization']
-    thumbnail: Union[str, 'ImageObject', List[Union[str, 'ImageObject']]]
+    director: Union[str, Person, List[Union[str, Person]]]
+    musicBy: Union[str, Person, Organization]
+    thumbnail: Union[str, ImageObject, List[Union[str, ImageObject]]]
     transcript: str
     videoFrameSize: str
     videoQuality: str
@@ -80,9 +80,9 @@ class Clip(VideoObject, total=False):
     A class representing schema.org's Clip.
     See: https://schema.org/Clip
     """
-    actor: Union[str, 'Person', List[Union[str, 'Person']]]
-    director: Union[str, 'Person', List[Union[str, 'Person']]]
-    musicBy: Union[str, 'Person', 'Organization']
+    actor: Union[str, Person, List[Union[str, Person]]]
+    director: Union[str, Person, List[Union[str, Person]]]
+    musicBy: Union[str, Person, Organization]
     partOfEpisode: Episode
     partOfSeason: CreativeWorkSeason
     partOfSeries: CreativeWorkSeries

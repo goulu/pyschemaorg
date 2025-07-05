@@ -17,7 +17,7 @@ class MusicPlaylist(CreativeWork, total=False):
     See: https://schema.org/MusicPlaylist
     """
     numTracks: int
-    track: List[Union[ItemList, 'MusicRecording']]
+    track: List[Union[ItemList, MusicRecording]]
 
 
 class MusicGroup(Organization, total=False):
@@ -37,12 +37,12 @@ class MusicRecording(CreativeWork, total=False):
     A class representing schema.org's MusicRecording.
     See: https://schema.org/MusicRecording
     """
-    byArtist: Union['MusicGroup', Person]
+    byArtist: Union[MusicGroup, Person]
     duration: Duration
-    inAlbum: 'MusicAlbum'
-    inPlaylist: 'MusicPlaylist'
+    inAlbum: MusicAlbum
+    inPlaylist: MusicPlaylist
     isrcCode: Text
-    recordingOf: 'MusicComposition'
+    recordingOf: MusicComposition
     releasedEvent: PublicationEvent
 
 
@@ -53,14 +53,14 @@ class MusicComposition(CreativeWork, total=False):
     """
     composer: Union[Organization, Person]
     firstPerformance: Event
-    includedComposition: 'MusicComposition'
+    includedComposition: MusicComposition
     iswcCode: Text
     lyricist: Person
     lyrics: CreativeWork
-    musicArrangement: 'MusicComposition'
+    musicArrangement: MusicComposition
     musicCompositionForm: Text
     musicalKey: Text
-    recordedAs: 'MusicRecording'
+    recordedAs: MusicRecording
 
 
 class MusicAlbumProductionType(enum.Enum):
@@ -88,9 +88,9 @@ class MusicRelease(CreativeWork, total=False):
     catalogNumber: Text
     creditedTo: Union[Organization, Person]
     duration: Duration
-    musicReleaseFormat: 'MusicReleaseFormatType'
+    musicReleaseFormat: MusicReleaseFormatType
     recordLabel: Organization
-    releaseOf: 'MusicAlbum'
+    releaseOf: MusicAlbum
 
 
 class MusicAlbumReleaseType(enum.Enum):

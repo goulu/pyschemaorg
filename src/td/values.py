@@ -17,7 +17,7 @@ class QuantitativeValue(StructuredValue, total=False):
     A class representing schema.org's QuantitativeValue.
     See: https://schema.org/QuantitativeValue
     """
-    additionalProperty: Union['PropertyValue', List['PropertyValue']]
+    additionalProperty: Union[PropertyValue, List[PropertyValue]]
     maxValue: Union[float, int]
     minValue: Union[float, int]
     unitCode: str
@@ -36,7 +36,7 @@ class PropertyValue(StructuredValue, total=False):
     unitCode: str
     unitText: str
     value: Union[str, float, int, bool, List[Union[str, float, int, bool]]]
-    valueReference: Union[str, Thing, 'QuantitativeValue',
-                          List[Union[str, Thing, 'QuantitativeValue']]]
+    valueReference: Union[str, Thing, QuantitativeValue,
+                          List[Union[str, Thing, QuantitativeValue]]]
     measurementTechnique: Union[str, List[str]]
     propertyID: str
