@@ -7,7 +7,7 @@ from .values import StructuredValue, PropertyValue
 
 class VirtualLocation(Intangible, total=False):
     """
-    A class representing schema.org's Intangible.
+    A class representing schema.org's VirtualLocation.
     See: https://schema.org/VirtualLocation
     """
     pass
@@ -15,7 +15,7 @@ class VirtualLocation(Intangible, total=False):
 
 class Language(Intangible, total=False):
     """
-    A class representing schema.org's Intangible.
+    A class representing schema.org's Language.
     See: https://schema.org/Language
     """
     pass
@@ -45,15 +45,13 @@ class ContactPoint(StructuredValue, total=False):
     telephone: Optional[str]  # The telephone number.
 
 
-# PostalAddress: https://.org/PostalAddress
 class PostalAddress(ContactPoint, total=False):
     """
     A class representing schema.org's PostalAddress.
     See: https://schema.org/PostalAddress
     """
-    addressCountry: Optional[Union[str, Country]
-                             # The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
-                             ]
+    # The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
+    addressCountry: Optional[Union[str, Country]]
     addressLocality: Optional[str]  # The locality. For example, Mountain View.
     addressRegion: Optional[str]  # The region. For example, CA.
     # The extended address. For example, Suite 100.
@@ -71,16 +69,15 @@ class GeoCoordinates(StructuredValue, total=False):
     The geographic coordinates of a place or event.
     See: https://schema.org/GeoCoordinates
     """
-    address: Optional[Union[str, PostalAddress]
-                      ]  # Physical address of the item.
+    address: Union[str, PostalAddress]  # Physical address of the item.
     # The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
     addressCountry: Optional[Union[str, Country]]
     # The elevation of a location (WGS 84). Values may be positive or negative, representing height above or below sea level.
     elevation: Optional[Union[float, str]]
     # The latitude of a location. For example 37.42242 (WGS 84).
-    latitude: Optional[Union[float, str]]
+    latitude: Union[float, str]
     # The longitude of a location. For example -122.08585 (WGS 84).
-    longitude: Optional[Union[float, str]]
+    longitude: Union[float, str]
     postalCode: Optional[str]  # The postal code. For example, 94043.
 
 
