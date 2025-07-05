@@ -1,9 +1,6 @@
 from __future__ import annotations
 from typing import TypedDict, Union, List
-
-
-URL = str
-Text = str
+from .data_type import URL, Text
 
 
 class BaseTypedDict(TypedDict, total=False):

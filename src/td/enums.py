@@ -10,47 +10,47 @@ class OfferItemCondition(enum.Enum):
 
 
 class EUEnergyEfficiencyEnumeration(enum.Enum):
-    EUEnergyEfficiencyCategoryA = https://.org/EUEnergyEfficiencyCategoryA
-    EUEnergyEfficiencyCategoryA1Plus = https://.org/EUEnergyEfficiencyCategoryA1Plus
-    EUEnergyEfficiencyCategoryA2Plus = https://.org/EUEnergyEfficiencyCategoryA2Plus
-    EUEnergyEfficiencyCategoryA3Plus = https://.org/EUEnergyEfficiencyCategoryA3Plus
-    EUEnergyEfficiencyCategoryB = https://.org/EUEnergyEfficiencyCategoryB
-    EUEnergyEfficiencyCategoryC = https://.org/EUEnergyEfficiencyCategoryC
-    EUEnergyEfficiencyCategoryD = https://.org/EUEnergyEfficiencyCategoryD
-    EUEnergyEfficiencyCategoryE = https://.org/EUEnergyEfficiencyCategoryE
-    EUEnergyEfficiencyCategoryF = https://.org/EUEnergyEfficiencyCategoryF
-    EUEnergyEfficiencyCategoryG = https://.org/EUEnergyEfficiencyCategoryG
+    EUEnergyEfficiencyCategoryA = "https://schema.org/EUEnergyEfficiencyCategoryA"
+    EUEnergyEfficiencyCategoryA1Plus = "https://schema.org/EUEnergyEfficiencyCategoryA1Plus"
+    EUEnergyEfficiencyCategoryA2Plus = "https://schema.org/EUEnergyEfficiencyCategoryA2Plus"
+    EUEnergyEfficiencyCategoryA3Plus = "https://schema.org/EUEnergyEfficiencyCategoryA3Plus"
+    EUEnergyEfficiencyCategoryB = "https://schema.org/EUEnergyEfficiencyCategoryB"
+    EUEnergyEfficiencyCategoryC = "https://schema.org/EUEnergyEfficiencyCategoryC"
+    EUEnergyEfficiencyCategoryD = "https://schema.org/EUEnergyEfficiencyCategoryD"
+    EUEnergyEfficiencyCategoryE = "https://schema.org/EUEnergyEfficiencyCategoryE"
+    EUEnergyEfficiencyCategoryF = "https://schema.org/EUEnergyEfficiencyCategoryF"
+    EUEnergyEfficiencyCategoryG = "https://schema.org/EUEnergyEfficiencyCategoryG"
 
 
 EnergyConsumptionDetails = EUEnergyEfficiencyEnumeration
 
 
 class BusinessFunction(enum.Enum):
-    ConstructionInstallation = https://.org/ConstructionInstallation
-    Dispose = https://.org/Dispose
-    LeaseOut = https://.org/LeaseOut
-    Maintain = https://.org/Maintain
-    ProvideService = https://.org/ProvideService
-    Repair = https://.org/Repair
-    Sell = https://.org/Sell
+    ConstructionInstallation = "https://schema.org/ConstructionInstallation"
+    Dispose = "https://schema.org/Dispose"
+    LeaseOut = "https://schema.org/LeaseOut"
+    Maintain = "https://schema.org/Maintain"
+    ProvideService = "https://schema.org/ProvideService"
+    Repair = "https://schema.org/Repair"
+    Sell = "https://schema.org/Sell"
 
 
 class WarrantyScope(enum.Enum):
-    LaborBringingIn = https://.org/LaborBringingIn
-    LaborPickupDropOff = https://.org/LaborPickupDropOff
-    LaborRepair = https://.org/LaborRepair
-    PartsAndLaborBringingIn = https://.org/PartsAndLaborBringingIn
-    PartsAndLaborPickupDropOff = https://.org/PartsAndLaborPickupDropOff
-    PartsAndLaborRepair = https://.org/PartsAndLaborRepair
-    PartsBringingIn = https://.org/PartsBringingIn
-    PartsPickupDropOff = https://.org/PartsPickupDropOff
-    PartsRepair = https://.org/PartsRepair
+    LaborBringingIn = "https://schema.org/LaborBringingIn"
+    LaborPickupDropOff = "https://schema.org/LaborPickupDropOff"
+    LaborRepair = "https://schema.org/LaborRepair"
+    PartsAndLaborBringingIn = "https://schema.org/PartsAndLaborBringingIn"
+    PartsAndLaborPickupDropOff = "https://schema.org/PartsAndLaborPickupDropOff"
+    PartsAndLaborRepair = "https://schema.org/PartsAndLaborRepair"
+    PartsBringingIn = "https://schema.org/PartsBringingIn"
+    PartsPickupDropOff = "https://schema.org/PartsPickupDropOff"
+    PartsRepair = "https://schema.org/PartsRepair"
 
 
 class ItemListOrderType(enum.Enum):
-    ItemListOrderAscending = https://.org/ItemListOrderAscending
-    ItemListOrderDescending = https://.org/ItemListOrderDescending
-    ItemListUnordered = https://.org/ItemListUnordered
+    ItemListOrderAscending = "https://schema.org/ItemListOrderAscending"
+    ItemListOrderDescending = "https://schema.org/ItemListOrderDescending"
+    ItemListUnordered = "https://schema.org/ItemListUnordered"
 
 
 class DayOfWeek(enum.Enum):

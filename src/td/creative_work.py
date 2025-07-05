@@ -1,8 +1,9 @@
 from __future__ import annotations
 from typing import Union, List
 
-from .date_time import DateTime, Duration
-from .thing import URL, Thing
+from .opening_hours_specification import DateTime, Duration
+from .data_type import URL, Text
+from .thing import Thing
 from .values import StructuredValue
 
 

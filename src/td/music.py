@@ -1,8 +1,8 @@
 from __future__ import annotations
-from typing import List, Union, Text
+from typing import List, Union
 
-from .thing import URL
-from .date_time import Duration
+from .data_type import URL, Text
+from .opening_hours_specification import Duration
 from .event import Event, PublicationEvent
 from .person import Person
 from .types import ItemList

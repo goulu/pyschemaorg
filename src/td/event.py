@@ -1,22 +1,45 @@
 from __future__ import annotations
 from typing import Union
 
-from .date_time import Date, Time, DateTime, Duration
+from .data_type import Date, Time, DateTime, Duration, URL, Text
 
 from .business import Offer
 
 from .service import BroadcastService
-from .thing import URL, Thing, Text
+from .thing import Thing
 from .schedule import Schedule
 from .place import Audience, Language, PostalAddress, Place, VirtualLocation
 from .person import Person
 from .organization import Organization
 from .creative_work import CreativeWork, Review
 from .rating import AggregateRating
+from enum import Enum
 
 type Location = Union[Place, PostalAddress, Text, VirtualLocation]
 
 type PersOrg = Union[Person, Organization]
+
+
+class EventStatusType(str, Enum):
+    """
+    EventStatusType is an enumeration type whose instances represent several states of an Event.
+    See: https://schema.org/EventStatusType
+    """
+    EventCancelled = "EventCancelled"
+    EventMovedOnline = "EventMovedOnline"
+    EventPostponed = "EventPostponed"
+    EventRescheduled = "EventRescheduled"
+    EventScheduled = "EventScheduled"
+
+
+class EventAttendanceModeEnumeration(str, Enum):
+    """
+    An enumeration type indicating the attendance mode of an event.
+    See: https://schema.org/EventAttendanceModeEnumeration
+    """
+    MixedMode = "MixedMode"
+    OfflineMode = "OfflineMode"
+    OnlineMode = "OnlineMode"
 
 
 class Event(Thing, total=False):
@@ -46,11 +69,11 @@ class Event(Thing, total=False):
     """The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format."""
     endDate: Union[Date, DateTime]
     """The end date and time of the item (in ISO 8601 date format)."""
-    eventAttendanceMode: 'EventAttendanceModeEnumeration'
+    eventAttendanceMode: EventAttendanceModeEnumeration
     """The eventAttendanceMode of an event indicates whether it occurs online, offline, or a mix."""
     eventSchedule: Schedule
     """Associates an event with a series schedule."""
-    eventStatus: 'EventStatusType'
+    eventStatus: EventStatusType
     """An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled."""
     funder: PersOrg
     """A person or organization that supports (sponsors) something through some kind of financial contribution."""
