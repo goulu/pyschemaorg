@@ -2,13 +2,6 @@ from __future__ import annotations
 import enum
 
 
-class OfferItemCondition(enum.Enum):
-    DamagedCondition = 1,
-    NewCondition = 2,
-    RefurbishedCondition = 3,
-    UsedCondition = 4
-
-
 class EUEnergyEfficiencyEnumeration(enum.Enum):
     EUEnergyEfficiencyCategoryA = "https://schema.org/EUEnergyEfficiencyCategoryA"
     EUEnergyEfficiencyCategoryA1Plus = "https://schema.org/EUEnergyEfficiencyCategoryA1Plus"
@@ -25,16 +18,6 @@ class EUEnergyEfficiencyEnumeration(enum.Enum):
 EnergyConsumptionDetails = EUEnergyEfficiencyEnumeration
 
 
-class BusinessFunction(enum.Enum):
-    ConstructionInstallation = "https://schema.org/ConstructionInstallation"
-    Dispose = "https://schema.org/Dispose"
-    LeaseOut = "https://schema.org/LeaseOut"
-    Maintain = "https://schema.org/Maintain"
-    ProvideService = "https://schema.org/ProvideService"
-    Repair = "https://schema.org/Repair"
-    Sell = "https://schema.org/Sell"
-
-
 class WarrantyScope(enum.Enum):
     LaborBringingIn = "https://schema.org/LaborBringingIn"
     LaborPickupDropOff = "https://schema.org/LaborPickupDropOff"
@@ -45,12 +28,6 @@ class WarrantyScope(enum.Enum):
     PartsBringingIn = "https://schema.org/PartsBringingIn"
     PartsPickupDropOff = "https://schema.org/PartsPickupDropOff"
     PartsRepair = "https://schema.org/PartsRepair"
-
-
-class ItemListOrderType(enum.Enum):
-    ItemListOrderAscending = "https://schema.org/ItemListOrderAscending"
-    ItemListOrderDescending = "https://schema.org/ItemListOrderDescending"
-    ItemListUnordered = "https://schema.org/ItemListUnordered"
 
 
 class DayOfWeek(enum.Enum):

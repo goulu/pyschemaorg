@@ -1,12 +1,12 @@
 from __future__ import annotations
-from typing import Union
+from typing import TypedDict, Union
 
-from td.date_time import Date, Time, DateTime, Duration
-from td.enums import DayOfWeek
+from .data_type import Date, Time, DateTime, Duration
+from .enums import DayOfWeek
 from .thing import Intangible, Text
 
 
-class Schedule(Intangible, total=False):
+class Schedule(Intangible, TypedDict, total=False):
     # The day of the week for which the opening hours specification is valid.
     byDay: Union[DayOfWeek, str]
     # The month of the year for which the opening hours specification is valid.

@@ -1,6 +1,14 @@
 from __future__ import annotations
-from typing import TypedDict, Union, List
+from typing import TYPE_CHECKING, TypedDict, Union, List
+
 from .data_type import URL, Text
+if TYPE_CHECKING:
+    from .creative_work import CreativeWork
+    from .event import Event
+    from .action import Action
+
+    from .property_value import PropertyValue
+    from .image_object import ImageObject
 
 
 class BaseTypedDict(TypedDict, total=False):
@@ -10,7 +18,7 @@ class BaseTypedDict(TypedDict, total=False):
     type: Union[str, List[str]]  # Represents @type
 
 
-class Thing(BaseTypedDict, total=False):
+class Thing(BaseTypedDict, TypedDict, total=False):
     """
     A base class representing schema.org's Thing.
     See: https://schema.org/Thing
@@ -37,9 +45,39 @@ class Thing(BaseTypedDict, total=False):
     potentialAction: Action
 
 
-class Intangible(Thing, total=False):
+class Intangible(Thing, TypedDict, total=False):
     """
     A class representing schema.org's Intangible.
     See: https://schema.org/Intangible
     """
     pass  # A utility class that serves as the parent for intangible things.
+
+
+class _Supersedable(Intangible, TypedDict, total=False):
+    """
+    base class for classes below. not in .org
+    """
+    supersededBy: Union[Enumeration, Class, Property]
+
+
+class Enumeration(_Supersedable, TypedDict, total=False):
+    """
+    Derived from https://.org/Enumeration
+    """
+    pass
+
+
+class Class(_Supersedable, TypedDict, total=False):
+    """
+    Derived from https://.org/Class
+    """
+    pass
+
+
+class Property(_Supersedable, total=False):
+    """
+    Derived from https://.org/Property
+    """
+    domainIncludes: Class
+    rangeIncludes: Class
+    inverseOf: Property

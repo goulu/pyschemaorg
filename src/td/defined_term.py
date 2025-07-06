@@ -1,10 +1,10 @@
 from __future__ import annotations
-from typing import Union, List
+from typing import TypedDict, Union, List
 from .thing import Intangible, URL
 from .creative_work import CreativeWork
 
 
-class DefinedTerm(Intangible, total=False):
+class DefinedTerm(Intangible, TypedDict, total=False):
     """
     A class representing schema.org's DefinedTerm.
     A word, name, acronym, phrase, etc. with a formal definition.
@@ -15,11 +15,13 @@ class DefinedTerm(Intangible, total=False):
     inDefinedTermSet: Union[URL, DefinedTermSet]
 
 
-class DefinedTermSet(CreativeWork, total=False):
+class DefinedTermSet(CreativeWork, TypedDict, total=False):
     """
     A class representing schema.org's DefinedTermSet.
-    A set of defined terms for example a set of categories or a classification scheme, a glossary, dictionary or enumeration.
+    A set of defined terms for example a set of categories or a classification scheme, 
+    a glossary, dictionary or enumeration.
     See: https://schema.org/DefinedTermSet
     """
+    # A DefinedTerm contained in this set.
     hasDefinedTerm: Union[DefinedTerm, List[DefinedTerm]
-                          ]  # A DefinedTerm contained in this set.
+                          ]
