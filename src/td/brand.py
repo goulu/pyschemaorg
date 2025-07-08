@@ -1,3 +1,4 @@
+from __future__ import annotations
 from typing import TYPE_CHECKING, TypedDict
 from .thing import Intangible
 from .data_type import URL

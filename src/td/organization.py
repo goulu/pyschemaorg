@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Union, List, TYPE_CHECKING
+from typing import TypedDict, Union, List, TYPE_CHECKING
 from .thing import Thing
 
 if TYPE_CHECKING:
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 
 
 # Organization: https://schema.org/Organization
-class Organization(Thing, total=False):
+class Organization(Thing, TypedDict, total=False):
     """
     A class representing schema.org's Organization.
     See: https://schema.org/Organization

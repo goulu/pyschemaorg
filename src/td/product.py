@@ -2,6 +2,7 @@ from typing import List, TYPE_CHECKING
 from .thing import Thing, URL
 from .enums import EnergyConsumptionDetails
 from .business import OfferItemCondition
+
 if TYPE_CHECKING:
     from .brand import Brand
     from .organization import Organization

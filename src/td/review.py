@@ -1,7 +1,6 @@
 from __future__ import annotations
-from typing import Text, TypedDict, Union, List
+from typing import TYPE_CHECKING, Text, TypedDict, Union, List
 
-from matplotlib.pylab import TYPE_CHECKING
 from .creative_work import CreativeWork
 if TYPE_CHECKING:
     from .web_content import WebContent

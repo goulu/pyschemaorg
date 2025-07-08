@@ -1,3 +1,4 @@
+from __future__ import annotations
 from typing import TYPE_CHECKING, TypedDict
 from .structured_value import StructuredValue
 if TYPE_CHECKING:

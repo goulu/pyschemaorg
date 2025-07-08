@@ -1,6 +1,7 @@
 from __future__ import annotations
 from typing import Union, TYPE_CHECKING
 from enum import Enum
+from .thing import Thing
 
 from .data_type import Date, Time, DateTime, Duration, URL, Text
 
@@ -10,7 +11,6 @@ if TYPE_CHECKING:
     from .virtual_location import VirtualLocation
     from .person import Person
     from .organization import Organization
-    from .thing import Thing
     from .aggregate_rating import AggregateRating
     from .audience import Audience
     from .schedule import Schedule
@@ -23,7 +23,6 @@ if TYPE_CHECKING:
 
 
 type Location = Union[Place, PostalAddress, Text, VirtualLocation]
-
 type PersOrg = Union[Person, Organization]
 
 

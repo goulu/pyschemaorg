@@ -1,5 +1,7 @@
-from __future__ import annotations
-
+from .thing import *
+from .creative_work import *
+from .event import *
+from .music_event import *
 from .action import *
 from .aggregate_rating import *
 from .alignment_object import *
@@ -14,7 +16,6 @@ from .clip import *
 from .comment import *
 from .contact_point import *
 from .country import *
-from .creative_work import *
 from .creative_work_season import *
 from .creative_work_series import *
 from .data_feed import *
@@ -24,7 +25,6 @@ from .defined_term import *
 from .enums import *
 from .entry_point import *
 from .episode import *
-from .event import *
 from .geo_coordinates import *
 from .geo_shape import *
 from .image_object import *
@@ -38,7 +38,6 @@ from .music_album import *
 from .music_album_production_type import *
 from .music_album_release_type import *
 from .music_composition import *
-from .music_event import *
 from .music_group import *
 from .music_playlist import *
 from .music_recording import *
@@ -64,7 +63,6 @@ from .service import *
 from .service_channel import *
 from .software_application import *
 from .structured_value import *
-from .thing import *
 from .type_and_quantity_node import *
 from .video_object import *
 from .virtual_location import *

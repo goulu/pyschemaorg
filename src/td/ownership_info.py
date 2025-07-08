@@ -1,4 +1,5 @@
-from typing import TYPE_CHECKING, List, Union
+from __future__ import annotations
+from typing import TYPE_CHECKING, List, TypedDict, Union
 from .thing import Intangible
 from .data_type import DateTime
 if TYPE_CHECKING:
@@ -8,7 +9,7 @@ if TYPE_CHECKING:
     from .quantitative_value import QuantitativeValue
 
 
-class OwnershipInfo(Intangible, total=False):
+class OwnershipInfo(Intangible, TypedDict, total=False):
     """
     A class representing schema.org's OwnershipInfo.
     See: https://schema.org/OwnershipInfo
